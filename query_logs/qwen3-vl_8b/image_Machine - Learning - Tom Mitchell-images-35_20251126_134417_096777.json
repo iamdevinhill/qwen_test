@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:44:17.096801",
+  "model": "qwen3-vl:8b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-35.jpg",
+  "extracted_text": "24 MACHINE LEARNING  \n3·2·2·2·2 = 96 distinct instances. A similar calculation shows that there are 5·4·4·4·4 = 5120 syntactically distinct hypotheses within H. Notice, however, that every hypothesis containing one or more \"∅\" symbols represents the empty set of instances; that is, it classifies every instance as negative. Therefore, the number of semantically distinct hypotheses is only 1 + (4·3·3·3·3) = 973. Our EnjoySport example is a very simple learning task, with a relatively small, finite hypothesis space. Most practical learning tasks involve much larger, sometimes infinite, hypothesis spaces.  \n\nIf we view learning as a search problem, then it is natural that our study of learning algorithms will examine different strategies for searching the hypothesis space. We will be particularly interested in algorithms capable of efficiently searching very large or infinite hypothesis spaces, to find the hypotheses that best fit the training data.  \n\n2.3.1 General-to-Specific Ordering of Hypotheses  \n\nMany algorithms for concept learning organize the search through the hypothesis space by relying on a very useful structure that exists for any concept learning problem: a general-to-specific ordering of hypotheses. By taking advantage of this naturally occurring structure over the hypothesis space, we can design learning algorithms that exhaustively search even infinite hypothesis spaces without explicitly enumerating every hypothesis. To illustrate the general-to-specific ordering, consider the two hypotheses  \n\n\\( h_1 = (Sunny, ?, ?, Strong, ?, ?) \\)  \n\\( h_2 = (Sunny, ?, ?, ?, ?, ?) \\)  \n\nNow consider the sets of instances that are classified positive by \\( h_1 \\) and by \\( h_2 \\). Because \\( h_2 \\) imposes fewer constraints on the instance, it classifies more instances as positive. In fact, any instance classified positive by \\( h_1 \\) will also be classified positive by \\( h_2 \\). Therefore, we say that \\( h_2 \\) is more general than \\( h_1 \\).  \n\nThis intuitive \"more general than\" relationship between hypotheses can be defined more precisely as follows. First, for any instance \\( x \\) in \\( X \\) and hypothesis \\( h \\) in \\( H \\), we say that \\( x \\) satisfies \\( h \\) if and only if \\( h(x) = 1 \\). We now define the *more_general_than_or_equal_to* relation in terms of the sets of instances that satisfy the two hypotheses: Given hypotheses \\( h_j \\) and \\( h_k \\), \\( h_j \\) is *more_general_than_or_equal_to* \\( h_k \\) if and only if any instance that satisfies \\( h_k \\) also satisfies \\( h_j \\).  \n\n**Definition:** Let \\( h_j \\) and \\( h_k \\) be boolean-valued functions defined over \\( X \\). Then \\( h_j \\) is *more_general_than_or_equal_to* \\( h_k \\) (written \\( h_j \\geq_h h_k \\)) if and only if  \n\\[ (\\forall x \\in X)[(h_k(x) = 1) \\rightarrow (h_j(x) = 1)] \\]  \n\nWe will also find it useful to consider cases where one hypothesis is strictly more general than the other. Therefore, we will say that \\( h_j \\) is (strictly) *more_general_than*",
+  "metadata": {
+    "text_length": 2991,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-35.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 5652,
+    "total_tokens": 7675,
+    "timing": {
+      "total_duration_ns": 109682541243,
+      "load_duration_ns": 53765997,
+      "prompt_eval_duration_ns": 1060303511,
+      "eval_duration_ns": 103816482765,
+      "total_duration_sec": 109.682541243,
+      "eval_duration_sec": 103.816482765
+    }
+  }
+}

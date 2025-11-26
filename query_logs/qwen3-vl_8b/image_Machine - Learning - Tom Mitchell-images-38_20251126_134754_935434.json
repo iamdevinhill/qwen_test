@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:47:54.935457",
+  "model": "qwen3-vl:8b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-38.jpg",
+  "extracted_text": "CHAPTER 2 CONCEPT LEARNING AND THE GENERAL-TO-SPECIFIC ORDERING 27  \n\nis needed. In the general case, as long as we assume that the hypothesis space H contains a hypothesis that describes the true target concept c and that the training data contains no errors, then the current hypothesis h can never require a revision in response to a negative example. To see why, recall that the current hypothesis h is the most specific hypothesis in H consistent with the observed positive examples. Because the target concept c is also assumed to be in H and to be consistent with the positive training examples, c must be more_general_than_or_equal_to h. But the target concept c will never cover a negative example, thus neither will h (by the definition of more_general_than). Therefore, no revision to h will be required in response to any negative example.  \n\nTo complete our trace of FIND-S, the fourth (positive) example leads to a further generalization of h  \n\nh ← ⟨Sunny, Warm, ?, Strong, ?, ?⟩  \n\nThe FIND-S algorithm illustrates one way in which the more_general_than partial ordering can be used to organize the search for an acceptable hypothesis. The search moves from hypothesis to hypothesis, searching from the most specific to progressively more general hypotheses along one chain of the partial ordering. Figure 2.2 illustrates this search in terms of the instance and hypothesis spaces. At each step, the hypothesis is generalized only as far as necessary to cover the new positive example. Therefore, at each stage the hypothesis is the most specific hypothesis consistent with the training examples observed up to this point (hence the name FIND-S). The literature on concept learning is  \n\nInstances X  \n\nHypotheses H  \n\nh₀ = ⟨∅, ∅, ∅, ∅, ∅, ∅⟩  \nh₁ = ⟨Sunny Warm Normal Strong Warm Same⟩  \nh₂ = ⟨Sunny Warm ? Strong Warm Same⟩  \nh₃ = ⟨Sunny Warm ? Strong Warm Same⟩  \nh₄ = ⟨Sunny Warm ? Strong ? ?⟩  \n\nx₁ = ⟨Sunny Warm Normal Strong Warm Same⟩, +  \nx₂ = ⟨Sunny Warm High Strong Warm Same⟩, +  \nx₃ = ⟨Rainy Cold High Strong Warm Change⟩, -  \nx₄ = ⟨Sunny Warm High Strong Cool Change⟩, +  \n\nFIGURE 2.2  \nThe hypothesis space search performed by FIND-S. The search begins (h₀) with the most specific hypothesis in H, then considers increasingly general hypotheses (h₁ through h₄) as mandated by the training examples. In the instance space diagram, positive training examples are denoted by “+,” negative by “-,” and instances that have not been presented as training examples are denoted by a solid circle.",
+  "metadata": {
+    "text_length": 2519,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-38.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 6817,
+    "total_tokens": 8840,
+    "timing": {
+      "total_duration_ns": 133395055524,
+      "load_duration_ns": 53930535,
+      "prompt_eval_duration_ns": 1062222178,
+      "eval_duration_ns": 127350358892,
+      "total_duration_sec": 133.395055524,
+      "eval_duration_sec": 127.350358892
+    }
+  }
+}

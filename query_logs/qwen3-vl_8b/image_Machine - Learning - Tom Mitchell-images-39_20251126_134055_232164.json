@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:40:55.232189",
+  "model": "qwen3-vl:8b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-39.jpg",
+  "extracted_text": "28 MACHINE LEARNING\n\npopulated by many different algorithms that utilize this same more_general_than partial ordering to organize the search in one fashion or another. A number of such algorithms are discussed in this chapter, and several others are presented in Chapter 10.\n\nThe key property of the FIND-S algorithm is that for hypothesis spaces described by conjunctions of attribute constraints (such as H for the EnjoySport task), FIND-S is guaranteed to output the most specific hypothesis within H that is consistent with the positive training examples. Its final hypothesis will also be consistent with the negative examples provided the correct target concept is contained in H, and provided the training examples are correct. However, there are several questions still left unanswered by this learning algorithm, such as:\n\n- Has the learner converged to the correct target concept? Although FIND-S will find a hypothesis consistent with the training data, it has no way to determine whether it has found the only hypothesis in H consistent with the data (i.e., the correct target concept), or whether there are many other consistent hypotheses as well. We would prefer a learning algorithm that could determine whether it had converged and, if not, at least characterize its uncertainty regarding the true identity of the target concept.\n\n- Why prefer the most specific hypothesis? In case there are multiple hypotheses consistent with the training examples, FIND-S will find the most specific. It is unclear whether we should prefer this hypothesis over, say, the most general, or some other hypothesis of intermediate generality.\n\n- Are the training examples consistent? In most practical learning problems there is some chance that the training examples will contain at least some errors or noise. Such inconsistent sets of training examples can severely mislead FIND-S, given the fact that it ignores negative examples. We would prefer an algorithm that could at least detect when the training data is inconsistent and, preferably, accommodate such errors.\n\n- What if there are several maximally specific consistent hypotheses? In the hypothesis language H for the EnjoySport task, there is always a unique, most specific hypothesis consistent with any set of positive examples. However, for other hypothesis spaces (discussed later) there can be several maximally specific hypotheses consistent with the data. In this case, FIND-S must be extended to allow it to backtrack on its choices of how to generalize the hypothesis, to accommodate the possibility that the target concept lies along a different branch of the partial ordering than the branch it has selected. Furthermore, we can define hypothesis spaces for which there is no maximally specific consistent hypothesis, although this is more of a theoretical issue than a practical one (see Exercise 2.7).",
+  "metadata": {
+    "text_length": 2875,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-39.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 1191,
+    "total_tokens": 3214,
+    "timing": {
+      "total_duration_ns": 25877671864,
+      "load_duration_ns": 54682799,
+      "prompt_eval_duration_ns": 1054210558,
+      "eval_duration_ns": 20654503395,
+      "total_duration_sec": 25.877671864,
+      "eval_duration_sec": 20.654503395
+    }
+  }
+}

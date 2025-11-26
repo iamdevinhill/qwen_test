@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:42:27.405658",
+  "model": "qwen3-vl:8b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-41.jpg",
+  "extracted_text": "30 MACHINE LEARNING  \ncalled the version space with respect to the hypothesis space $H$ and the training examples $D$, because it contains all plausible versions of the target concept.  \n\n*Definition*: The version space, denoted $VS_{H,D}$, with respect to hypothesis space $H$ and training examples $D$, is the subset of hypotheses from $H$ consistent with the training examples in $D$.  \n$$VS_{H,D} \\equiv \\{h \\in H \\mid \\text{Consistent}(h, D)\\}$$  \n\n**2.5.2 The List-Then-Eliminate Algorithm**  \nOne obvious way to represent the version space is simply to list all of its members. This leads to a simple learning algorithm, which we might call the List-Then-Eliminate algorithm, defined in Table 2.4.  \n\nThe List-Then-Eliminate algorithm first initializes the version space to contain all hypotheses in $H$, then eliminates any hypothesis found inconsistent with any training example. The version space of candidate hypotheses thus shrinks as more examples are observed, until ideally just one hypothesis remains that is consistent with all the observed examples. This, presumably, is the desired target concept. If insufficient data is available to narrow the version space to a single hypothesis, then the algorithm can output the entire set of hypotheses consistent with the observed data.  \n\nIn principle, the List-Then-Eliminate algorithm can be applied whenever the hypothesis space $H$ is finite. It has many advantages, including the fact that it is guaranteed to output all hypotheses consistent with the training data. Unfortunately, it requires exhaustively enumerating all hypotheses in $H$—an unrealistic requirement for all but the most trivial hypothesis spaces.  \n\n**2.5.3 A More Compact Representation for Version Spaces**  \nThe Candidate-Elimination algorithm works on the same principle as the above List-Then-Eliminate algorithm. However, it employs a much more compact representation of the version space. In particular, the version space is represented by its most general and least general members. These members form general and specific boundary sets that delimit the version space within the partially ordered hypothesis space.  \n\nThe List-Then-Eliminate Algorithm  \n1. $VersionSpace \\leftarrow$ a list containing every hypothesis in $H$  \n2. For each training example, $(x, c(x))$  \n   remove from $VersionSpace$ any hypothesis $h$ for which $h(x) \\neq c(x)$  \n3. Output the list of hypotheses in $VersionSpace$  \n\nTABLE 2.4  \nThe List-Then-Eliminate algorithm.",
+  "metadata": {
+    "text_length": 2492,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-41.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 1152,
+    "total_tokens": 3175,
+    "timing": {
+      "total_duration_ns": 25186954082,
+      "load_duration_ns": 54483517,
+      "prompt_eval_duration_ns": 1059819365,
+      "eval_duration_ns": 19953251281,
+      "total_duration_sec": 25.186954082,
+      "eval_duration_sec": 19.953251281
+    }
+  }
+}

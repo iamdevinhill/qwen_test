@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:40:29.344624",
+  "model": "qwen3-vl:8b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-40.jpg",
+  "extracted_text": "CHAPTER 2 CONCEPT LEARNING AND THE GENERAL-TO-SPECIFIC ORDERING 29  \n\n2.5 VERSION SPACES AND THE CANDIDATE-ELIMINATION ALGORITHM  \n\nThis section describes a second approach to concept learning, the CANDIDATE-ELIMINATION algorithm, that addresses several of the limitations of FIND-S. Notice that although FIND-S outputs a hypothesis from H, that is consistent with the training examples, this is just one of many hypotheses from H that might fit the training data equally well. The key idea in the CANDIDATE-ELIMINATION algorithm is to output a description of the set of all hypotheses consistent with the training examples. Surprisingly, the CANDIDATE-ELIMINATION algorithm computes the description of this set without explicitly enumerating all of its members. This is accomplished by again using the more-general-than partial ordering, this time to maintain a compact representation of the set of consistent hypotheses and to incrementally refine this representation as each new training example is encountered.  \n\nThe CANDIDATE-ELIMINATION algorithm has been applied to problems such as learning regularities in chemical mass spectroscopy (Mitchell 1979) and learning control rules for heuristic search (Mitchell et al. 1983). Nevertheless, practical applications of the CANDIDATE-ELIMINATION and FIND-S algorithms are limited by the fact that they both perform poorly when given noisy training data. More importantly for our purposes here, the CANDIDATE-ELIMINATION algorithm provides a useful conceptual framework for introducing several fundamental issues in machine learning. In the remainder of this chapter we present the algorithm and discuss these issues. Beginning with the next chapter, we will examine learning algorithms that are used more frequently with noisy training data.  \n\n2.5.1 Representation  \n\nThe CANDIDATE-ELIMINATION algorithm finds all describable hypotheses that are consistent with the observed training examples. In order to define this algorithm precisely, we begin with a few basic definitions. First, let us say that a hypothesis is consistent with the training examples if it correctly classifies these examples.  \n\nDefinition: A hypothesis $ h $ is consistent with a set of training examples $ D $ if and only if $ h(x) = c(x) $ for each example $ (x, c(x)) $ in $ D $.  \n\n$ \\text{Consistent}(h, D) \\equiv (\\forall (x, c(x)) \\in D) \\, h(x) = c(x) $  \n\nNotice the key difference between this definition of $\\text{consistent}$ and our earlier definition of $\\text{satisfies}$. An example $ x $ is said to $\\text{satisfy}$ hypothesis $ h $ when $ h(x) = 1 $, regardless of whether $ x $ is a positive or negative example of the target concept. However, whether such an example is $\\text{consistent}$ with $ h $ depends on the target concept, and in particular, whether $ h(x) = c(x) $.  \n\nThe CANDIDATE-ELIMINATION algorithm represents the set of all hypotheses consistent with the observed training examples. This subset of all hypotheses is",
+  "metadata": {
+    "text_length": 2977,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-40.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 1583,
+    "total_tokens": 3606,
+    "timing": {
+      "total_duration_ns": 32848869855,
+      "load_duration_ns": 59638074,
+      "prompt_eval_duration_ns": 1041793956,
+      "eval_duration_ns": 27528896710,
+      "total_duration_sec": 32.848869855,
+      "eval_duration_sec": 27.52889671
+    }
+  }
+}

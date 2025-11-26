@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T14:04:08.809138",
+  "model": "qwen3-vl:32b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-36.jpg",
+  "extracted_text": "CHAPTER 2 CONCEPT LEARNING AND THE GENERAL-TO-SPECIFIC ORDERING 25\n\nInstances X\nHypotheses H\n\nSpecific\nGeneral\n\nx₁ = <Sunny, Warm, High, Strong, Cool, Same>\nx₂ = <Sunny, Warm, High, Light, Warm, Same>\n\nh₁ = <Sunny, ?, ?, Strong, ?, ?>\nh₂ = <Sunny, ?, ?, ?, ?, ?>\nh₃ = <Sunny, ?, ?, ?, Cool, ?>\n\nFIGURE 2.1\nInstances, hypotheses, and the more-general-than relation. The box on the left represents the set X of all instances, the box on the right the set H of all hypotheses. Each hypothesis corresponds to some subset of X—the subset of instances that it classifies positive. The arrows connecting hypotheses represent the more-general-than relation, with the arrow pointing toward the less general hypothesis. Note the subset of instances characterized by h₂ subsumes the subset characterized by h₁, hence h₂ is more-general-than h₁.\n\nhₖ (written hⱼ >₉ hₖ) if and only if (hⱼ ≥₉ hₖ) ∧ (hₖ ≰₉ hⱼ). Finally, we will sometimes find the inverse useful and will say that hⱼ is more_specific_than hₖ when hₖ is more_general_than hⱼ.\n\nTo illustrate these definitions, consider the three hypotheses h₁, h₂, and h₃ from our EnjoySport example, shown in Figure 2.1. How are these three hypotheses related by the ≥₉ relation? As noted earlier, hypothesis h₂ is more general than h₁ because every instance that satisfies h₁ also satisfies h₂. Similarly, h₂ is more general than h₃. Note that neither h₁ nor h₃ is more general than the other; although the instances satisfied by these two hypotheses intersect, neither set subsumes the other. Notice also that the ≥₉ and >₉ relations are defined independent of the target concept. They depend only on which instances satisfy the two hypotheses and not on the classification of those instances according to the target concept. Formally, the ≥₉ relation defines a partial order over the hypothesis space H (the relation is reflexive, antisymmetric, and transitive). Informally, when we say the structure is a partial (as opposed to total) order, we mean there may be pairs of hypotheses such as h₁ and h₃, such that h₁ ≰₉ h₃ and h₃ ≰₉ h₁.\n\nThe ≥₉ relation is important because it provides a useful structure over the hypothesis space H for any concept learning problem. The following sections present concept learning algorithms that take advantage of this partial order to efficiently organize the search for hypotheses that fit the training data.",
+  "metadata": {
+    "text_length": 2383,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-36.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 1303,
+    "total_tokens": 3326,
+    "timing": {
+      "total_duration_ns": 93770542092,
+      "load_duration_ns": 59718062,
+      "prompt_eval_duration_ns": 4588435785,
+      "eval_duration_ns": 84859746845,
+      "total_duration_sec": 93.770542092,
+      "eval_duration_sec": 84.859746845
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-11-26T13:54:57.482771",
+  "model": "qwen3-vl:32b",
+  "task": "text_extraction",
+  "image_path": "Images/Machine - Learning - Tom Mitchell-images-37.jpg",
+  "extracted_text": "26 MACHINE LEARNING\n\n1. Initialize h to the most specific hypothesis in H\n2. For each positive training instance x\n   • For each attribute constraint a_i in h\n      If the constraint a_i is satisfied by x\n         Then do nothing\n      Else replace a_i in h by the next more general constraint that is satisfied by x\n3. Output hypothesis h\n\nTABLE 2.3\nFIND-S Algorithm.\n\n2.4 FIND-S: FINDING A MAXIMALLY SPECIFIC HYPOTHESIS\n\nHow can we use the more_general_than partial ordering to organize the search for a hypothesis consistent with the observed training examples? One way is to begin with the most specific possible hypothesis in H, then generalize this hypothesis each time it fails to cover an observed positive training example. (We say that a hypothesis “covers” a positive example if it correctly classifies the example as positive.) To be more precise about how the partial ordering is used, consider the FIND-S algorithm defined in Table 2.3.\n\nTo illustrate this algorithm, assume the learner is given the sequence of training examples from Table 2.1 for the EnjoySport task. The first step of FIND-S is to initialize h to the most specific hypothesis in H\n\nh ← ⟨∅, ∅, ∅, ∅, ∅, ∅⟩\n\nUpon observing the first training example from Table 2.1, which happens to be a positive example, it becomes clear that our hypothesis is too specific. In particular, none of the “∅” constraints in h are satisfied by this example, so each is replaced by the next more general constraint that fits the example; namely, the attribute values for this training example.\n\nh ← ⟨Sunny, Warm, Normal, Strong, Warm, Same⟩\n\nThis h is still very specific; it asserts that all instances are negative except for the single positive training example we have observed. Next, the second training example (also positive in this case) forces the algorithm to further generalize h, this time substituting a “?” in place of any attribute value in h that is not satisfied by the new example. The refined hypothesis in this case is\n\nh ← ⟨Sunny, Warm, ?, Strong, Warm, Same⟩\n\nUpon encountering the third training example—in this case a negative example—the algorithm makes no change to h. In fact, the FIND-S algorithm simply ignores every negative example! While this may at first seem strange, notice that in the current case our hypothesis h is already consistent with the new negative example (i.e., h correctly classifies this example as negative), and hence no revision",
+  "metadata": {
+    "text_length": 2442,
+    "image_filename": "Machine - Learning - Tom Mitchell-images-37.jpg"
+  },
+  "token_details": {
+    "prompt_tokens": 2023,
+    "response_tokens": 2072,
+    "total_tokens": 4095,
+    "timing": {
+      "total_duration_ns": 145256810622,
+      "load_duration_ns": 56965425,
+      "prompt_eval_duration_ns": 4606508226,
+      "eval_duration_ns": 136219569971,
+      "total_duration_sec": 145.256810622,
+      "eval_duration_sec": 136.219569971
+    }
+  }
+}

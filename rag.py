@@ -126,21 +126,36 @@ Answer:"""
                         'role': 'user',
                         'content': prompt
                     }
-                ]
+                ],
+                options={
+                    'num_predict': -1,  # No limit on tokens
+                }
             )
             
             answer = response['message']['content']
             
+            # Extract token information
+            token_info = {
+                'prompt_eval_count': response.get('prompt_eval_count', 0),
+                'eval_count': response.get('eval_count', 0),
+                'total_duration': response.get('total_duration', 0),
+                'load_duration': response.get('load_duration', 0),
+                'prompt_eval_duration': response.get('prompt_eval_duration', 0),
+                'eval_duration': response.get('eval_duration', 0),
+            }
+            
+            print(f"🔢 Tokens - Prompt: {token_info['prompt_eval_count']}, Response: {token_info['eval_count']}")
+            
             # Save the query log
-            self.save_query_log(question, answer, context_length, prompt_length)
+            self.save_query_log(question, answer, context_length, prompt_length, token_info)
             
             return answer
         except Exception as e:
             error_msg = f"Error querying model: {str(e)}"
-            self.save_query_log(question, error_msg, context_length, prompt_length)
+            self.save_query_log(question, error_msg, context_length, prompt_length, None)
             return error_msg
     
-    def save_query_log(self, question: str, answer: str, context_length: int, prompt_length: int):
+    def save_query_log(self, question: str, answer: str, context_length: int, prompt_length: int, token_info: dict = None):
         """Save query, response and metadata to timestamped JSON file"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         log_data = {
@@ -154,6 +169,22 @@ Answer:"""
                 "pdf_source": self.pdf_path
             }
         }
+        
+        # Add token details if available
+        if token_info:
+            log_data["token_details"] = {
+                "prompt_tokens": token_info['prompt_eval_count'],
+                "response_tokens": token_info['eval_count'],
+                "total_tokens": token_info['prompt_eval_count'] + token_info['eval_count'],
+                "timing": {
+                    "total_duration_ns": token_info['total_duration'],
+                    "load_duration_ns": token_info['load_duration'],
+                    "prompt_eval_duration_ns": token_info['prompt_eval_duration'],
+                    "eval_duration_ns": token_info['eval_duration'],
+                    "total_duration_sec": token_info['total_duration'] / 1e9,
+                    "eval_duration_sec": token_info['eval_duration'] / 1e9,
+                }
+            }
         
         log_file = self.logs_dir / f"query_{timestamp}.json"
         with open(log_file, 'w', encoding='utf-8') as f:
